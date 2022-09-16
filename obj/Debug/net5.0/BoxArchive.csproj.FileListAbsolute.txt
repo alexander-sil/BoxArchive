@@ -1,0 +1,16 @@
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive.deps.json
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive.runtimeconfig.json
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive.runtimeconfig.dev.json
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive.dll
+/Users/alexgreenhouse/Projects/BoxArchive/bin/Debug/net5.0/BoxArchive.pdb
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.csproj.AssemblyReference.cache
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.AssemblyInfoInputs.cache
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.AssemblyInfo.cs
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.csproj.CoreCompileInputs.cache
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.dll
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/refint/BoxArchive.dll
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.pdb
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/BoxArchive.genruntimeconfig.cache
+/Users/alexgreenhouse/Projects/BoxArchive/obj/Debug/net5.0/ref/BoxArchive.dll

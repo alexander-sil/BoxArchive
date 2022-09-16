@@ -1,0 +1,17 @@
+{
+  "profiles": {
+    "BoxArchive": {
+      "commandName": "Project"
+    },
+    "Box": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\User\\C# Code\\BoxArchive\\bin\\Debug\\net5.0\\BoxArchive.exe",
+      "commandLineArgs": "-c konki.pptx null_copy.png xp20.png copywrite.png"
+    },
+    "Unbox": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\User\\C# Code\\BoxArchive\\bin\\Debug\\net5.0\\BoxArchive.exe",
+      "commandLineArgs": "-d Archive.BOX"
+    }
+  }
+}

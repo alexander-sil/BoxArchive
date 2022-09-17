@@ -353,7 +353,6 @@ namespace BoxArchive
                         ArrayPush(ref result, preparedData[i].ToArray());
                     }
                 }
-
                 else if (files.Length == 1)
                 {
                     List<byte> finalDataToPrepare = new List<byte>();
@@ -393,6 +392,7 @@ namespace BoxArchive
                         header.AddRange(Encoding.Latin1.GetBytes($"{0} " + files[(i == 0) ? (j - 1) : (j + (i - 1))].Name + "\t").Concat(Encoding.Latin1.GetBytes($"{1} " + files[(i == 0) ? j : (j + i)].Name + "\t")).Cast<byte>());
 
 
+                        header.AddRange(Encoding.Latin1.GetBytes($"{0} " + files[i].Name + "\t").Concat(Encoding.Latin1.GetBytes($"{1} " + files[i + 1].Name + "\t")).Cast<byte>());
                         header.AddRange(start);
 
                         dataToPrepare.AddRange(header);
@@ -441,6 +441,9 @@ namespace BoxArchive
                 Console.WriteLine("Процесс подготовки файлов завершен.");
 
                 return result;
+
+
+
             }
             catch (Exception e)
             {

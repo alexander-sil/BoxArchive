@@ -5,6 +5,8 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.IO.Compression;
 
 namespace BoxArchive
 {
@@ -21,59 +23,59 @@ namespace BoxArchive
             {
                 if (args.Length >= 1)
                 {
-                    if (args[0] == "-c")
+                if (args[0] == "-c")
+                {
+                    if ((!Directory.Exists("input")) && (!Directory.Exists("input")))
                     {
-                        if ((!Directory.Exists("input")) && (!Directory.Exists("input")))
-                        {
-                            Directory.CreateDirectory("input");
-                            Directory.CreateDirectory("canned");
+                        Directory.CreateDirectory("input");
+                        Directory.CreateDirectory("canned");
 
-                            DirectoryInfo inputInfo = new DirectoryInfo("input");
-                            DirectoryInfo cannedInfo = new DirectoryInfo("canned");
+                        DirectoryInfo inputInfo = new DirectoryInfo("input");
+                        DirectoryInfo cannedInfo = new DirectoryInfo("canned");
 
-                            inputInfo.Attributes |= FileAttributes.Hidden;
-                            cannedInfo.Attributes |= FileAttributes.Hidden;
-                        }
-                        else if (!Directory.Exists("input"))
-                        {
-                            Directory.Delete("canned", true);
+                        inputInfo.Attributes |= FileAttributes.Hidden;
+                        cannedInfo.Attributes |= FileAttributes.Hidden;
+                    }
+                    else if (!Directory.Exists("input"))
+                    {
+                        Directory.Delete("canned", true);
 
-                            Directory.CreateDirectory("input");
-                            Directory.CreateDirectory("canned");
+                        Directory.CreateDirectory("input");
+                        Directory.CreateDirectory("canned");
 
-                            DirectoryInfo inputInfo = new DirectoryInfo("input");
-                            DirectoryInfo cannedInfo = new DirectoryInfo("canned");
+                        DirectoryInfo inputInfo = new DirectoryInfo("input");
+                        DirectoryInfo cannedInfo = new DirectoryInfo("canned");
 
-                            inputInfo.Attributes |= FileAttributes.Hidden;
-                            cannedInfo.Attributes |= FileAttributes.Hidden;
-                        }
-                        else if (!Directory.Exists("canned"))
-                        {
-                            Directory.Delete("input", true);
+                        inputInfo.Attributes |= FileAttributes.Hidden;
+                        cannedInfo.Attributes |= FileAttributes.Hidden;
+                    }
+                    else if (!Directory.Exists("canned"))
+                    {
+                        Directory.Delete("input", true);
 
-                            Directory.CreateDirectory("input");
-                            Directory.CreateDirectory("canned");
+                        Directory.CreateDirectory("input");
+                        Directory.CreateDirectory("canned");
 
-                            DirectoryInfo inputInfo = new DirectoryInfo("input");
-                            DirectoryInfo cannedInfo = new DirectoryInfo("canned");
+                        DirectoryInfo inputInfo = new DirectoryInfo("input");
+                        DirectoryInfo cannedInfo = new DirectoryInfo("canned");
 
-                            inputInfo.Attributes |= FileAttributes.Hidden;
-                            cannedInfo.Attributes |= FileAttributes.Hidden;
-                        }
-                        else
-                        {
-                            Directory.Delete("input", true);
-                            Directory.Delete("canned", true);
+                        inputInfo.Attributes |= FileAttributes.Hidden;
+                        cannedInfo.Attributes |= FileAttributes.Hidden;
+                    }
+                    else
+                    {
+                        Directory.Delete("input", true);
+                        Directory.Delete("canned", true);
 
-                            Directory.CreateDirectory("input");
-                            Directory.CreateDirectory("canned");
+                        Directory.CreateDirectory("input");
+                        Directory.CreateDirectory("canned");
 
-                            DirectoryInfo inputInfo = new DirectoryInfo("input");
-                            DirectoryInfo cannedInfo = new DirectoryInfo("canned");
+                        DirectoryInfo inputInfo = new DirectoryInfo("input");
+                        DirectoryInfo cannedInfo = new DirectoryInfo("canned");
 
-                            inputInfo.Attributes |= FileAttributes.Hidden;
-                            cannedInfo.Attributes |= FileAttributes.Hidden;
-                        }
+                        inputInfo.Attributes |= FileAttributes.Hidden;
+                        cannedInfo.Attributes |= FileAttributes.Hidden;
+                    }
 
                         PackFilesToInt(args, 1);
                         CanFiles();
@@ -81,9 +83,9 @@ namespace BoxArchive
 
                         if (Directory.Exists("input")) { Directory.Delete("input", true); }
                         if (Directory.Exists("canned")) { Directory.Delete("canned", true); }
-                    }
-                    else if (args[0] == "-d" && args.Length == 2 && File.Exists(args[1]) && args[1].Contains(".BOX"))
-                    {
+                }
+                else if (args[0] == "-d" && args.Length == 2 && File.Exists(args[1]) && args[1].Contains(".BOX"))
+                {
                         UnboxBoxFile(args[1]);
                         OpenCans();
                         UnpackInts();
@@ -91,11 +93,11 @@ namespace BoxArchive
                         if (Directory.Exists("unboxed")) { Directory.Delete("unboxed", true); }
                         if (Directory.Exists("uncanned")) { Directory.Delete("uncanned", true); }
 
-                        else
-                        {
-                            Console.WriteLine("Предупреждение: указана неверная директива.");
-                        }
-                    }
+                else
+                {
+                    Console.WriteLine("Предупреждение: указана неверная директива.");
+                }
+            }
                     else
                     {
                         Console.WriteLine("Ошибка: неверный формат директивы.");
@@ -232,7 +234,7 @@ namespace BoxArchive
                     {
                         infos.Add(new FileInfo(files[i]));
                     }
-                }
+                    }
 
                 byte[][] data = PrepareData(infos.ToArray());
 
@@ -354,6 +356,8 @@ namespace BoxArchive
                     }
                 }
 
+
+                }
                 else if (files.Length == 1)
                 {
                     List<byte> finalDataToPrepare = new List<byte>();
@@ -393,6 +397,7 @@ namespace BoxArchive
                         header.AddRange(Encoding.Latin1.GetBytes($"{0} " + files[(i == 0) ? (j - 1) : (j + (i - 1))].Name + "\t").Concat(Encoding.Latin1.GetBytes($"{1} " + files[(i == 0) ? j : (j + i)].Name + "\t")).Cast<byte>());
 
 
+                        header.AddRange(Encoding.Latin1.GetBytes($"{0} " + files[i].Name + "\t").Concat(Encoding.Latin1.GetBytes($"{1} " + files[i + 1].Name + "\t")).Cast<byte>());
                         header.AddRange(start);
 
                         dataToPrepare.AddRange(header);
@@ -441,6 +446,9 @@ namespace BoxArchive
                 Console.WriteLine("Процесс подготовки файлов завершен.");
 
                 return result;
+
+
+
             }
             catch (Exception e)
             {

@@ -5,7 +5,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
->>>>>>>>> Temporary merge branch 2
 
 namespace BoxArchive
 {

@@ -512,7 +512,10 @@ namespace BoxArchive
                 {
                     string[] current = parsedHeader[i].Split(' ');
 
-                    namesAndIndexes.Add(int.Parse(current[0]), current[1]);
+                    if (!namesAndIndexes.ContainsKey(int.Parse(current[0])))
+                    {
+                        namesAndIndexes.Add(int.Parse(current[0]), current[1]);
+                    }
                 }
 
                 byte[][] parsedData = new byte[][] { };
